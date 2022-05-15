@@ -6,10 +6,10 @@ import { executeAfterInstallHook } from '../utils'
  * Command to run the `afterInstall` hook
  */
 export class AfterInstallCommand extends Command<CommandContext> {
-  static paths = [['after-install']]
+  static override paths = [['after-install']]
 
   async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
-    return executeAfterInstallHook(configuration, false)
+    return executeAfterInstallHook(configuration, false, true)
   }
 }
