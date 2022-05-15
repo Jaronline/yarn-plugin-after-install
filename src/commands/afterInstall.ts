@@ -10,6 +10,6 @@ export class AfterInstallCommand extends Command<CommandContext> {
 
   async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
-    return executeAfterInstallHook(configuration, false, true)
+    return executeAfterInstallHook(configuration, false)
   }
 }
